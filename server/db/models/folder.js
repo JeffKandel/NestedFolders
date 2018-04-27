@@ -6,6 +6,9 @@ const Folder = db.define('folders', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  parent_folder_id:{
+    type: Sequelize.INTEGER,
+  }
 }, {
   timestamps: false,
 })
