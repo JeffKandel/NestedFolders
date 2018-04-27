@@ -15,6 +15,21 @@ const folders = [{
 }, {
   name: 'Videos',
   parent_folder_id: 2,
+}, {
+  name: 'Frame.io TV Spot',
+  parent_folder_id: null,
+}, {
+  name: 'Screen Captures',
+  parent_folder_id: 5,
+}, {
+  name: 'Small',
+  parent_folder_id: 6,
+}, {
+  name: 'Medium',
+  parent_folder_id: 6,
+}, {
+  name: 'Large',
+  parent_folder_id: 6,
 }]
 
 const files = [{
@@ -30,6 +45,9 @@ const files = [{
 const projects = [{
   name: 'Project One',
   root_folder_id: 1,
+}, {
+  name: 'Project Two',
+  root_folder_id: 5,
 }]
 
 const seed = async () => {
