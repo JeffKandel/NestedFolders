@@ -9,6 +9,10 @@ const File = db.define('files', {
   media_url: {
     type: Sequelize.STRING,
     allowNull: false,
+  },
+  folder_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
   }
 }, {
   timestamps: false,

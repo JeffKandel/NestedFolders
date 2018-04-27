@@ -40,6 +40,30 @@ const files = [{
   name: 'promo.mp4',
   media_url: "http://placekitten.com/200/300",
   folder_id: 4,
+}, {
+  name: 'capt_one_small.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 7,
+}, {
+  name: 'capt_two_small.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 7,
+}, {
+  name: 'capt_two_med.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 8,
+}, {
+  name: 'capt_one_med.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 8,
+}, {
+  name: 'capt_two_lg.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 9,
+}, {
+  name: 'capt_one_lg.jpg',
+  media_url: "http://placekitten.com/200/300",
+  folder_id: 9,
 }]
 
 const projects = [{
