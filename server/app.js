@@ -19,8 +19,7 @@ const createApp = () => {
 
   // send a 404 for other requests
   app.use('*', (req, res, next) => {
-    res.status(404)
-    res.send('Not Found... consider exploring <a href="/api/projects/1">project 1</a> or <a href="/api/projects/2">project 2</a>')
+    res.send('Consider exploring <a href="/api/projects/1">project 1</a> or <a href="/api/projects/2">project 2</a>')
   })
 
   // error handling endware
