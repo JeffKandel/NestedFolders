@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const PORT = process.env.PORT || 3000
+const db = require('./db')
 const app = express()
 module.exports = app
 
@@ -19,10 +20,12 @@ const createApp = () => {
 
 const startListening = () => app.listen(PORT, () => console.log(`Check me out on ${PORT}`))
 
+const syncDb = () => db.sync()
 
 if (require.main === module) {
-  createApp()
-  startListening()
+  syncDb()
+  .then(createApp)
+  .then(startListening)
 } else {
   createApp()
 }
