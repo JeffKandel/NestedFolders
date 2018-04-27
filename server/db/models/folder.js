@@ -8,6 +8,7 @@ const Folder = db.define('folders', {
   },
   parent_folder_id:{
     type: Sequelize.INTEGER,
+    hierarchy: true
   }
 }, {
   timestamps: false,
