@@ -20,4 +20,30 @@ To run the project locally, you'll need to take the following steps:
 
 Alternatively, you can head to the [deployed site](https://nestedfolders.herokuapp.com)
 
+## How Querying Works
 
+Nested queries are handled by the sequelize-hierarchy plugin.  When a call to the folder hierarchical structure is made the generated SQL looks like:
+
+```sql
+SELECT projects.id,
+       projects.name,
+       projects.root_folder_id,
+       folders.id,
+       folders.name,
+       folders.parent_folder_id,
+       folders."hierarchyLevel",
+       descendent.id,
+       descendent.name,
+       descendent.parent_folder_id,
+       descendent."hierarchyLevel",
+       ancestor."foldersId",
+       ancestor."ancestorId"
+FROM projects AS projects
+LEFT OUTER JOIN folders ON projects.root_folder_id = folders.id
+LEFT OUTER JOIN (foldersancestors AS ancestor
+                 INNER JOIN folders AS descendent ON descendent.id = ancestor."foldersId") ON folders.id = ancestor."ancestorId"
+WHERE projects.id = '1'
+```
+
+
+This queries utilizes a through table to rapidly identify all the children of the requested root folder.  The plugin then utilizes an [afterFind hook](https://github.com/overlookmotel/sequelize-hierarchy/blob/618af733828e7e154ba2e71136589970274dff99/lib/hooksUniversal.js#L63) to build the nested structure from the return data.  If a consumer of this API does not want to see the descendent nesting, passing flatten=true in the request query will simply return the result of the query above.
